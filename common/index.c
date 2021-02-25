@@ -49,7 +49,15 @@ void index_load (char* filename, hashtable_t* ht) {
         }
         if (curr == '[') { //If there is an opening bracket
           int key = currline[i+1] - '0'; //file num
-          int count = currline[i+3] - '0'; //count
+          int size = 0;
+          for (int s = 3; isdigit(currline[i+s]) != 0; s++) {
+            size++;
+          }
+          char count_str[size];
+          for (int s = 3; isdigit(currline[i+s]) != 0; s++) {
+            count_str[s-3] = currline[i+s];
+          }
+          int count = atoi(count_str);
           counters_set(ctrs, key, count); //add key and count to counters for that word
         }
       }
@@ -65,6 +73,28 @@ void index_load (char* filename, hashtable_t* ht) {
 void index_save (hashtable_t* index, FILE* file) {
 
   hashtable_iterate(index, file, print_index); //Iterate over hashtable and write to file with helper functions
+
+}
+
+/******function to check if path to file in directory is valid******/
+char* get_path (char* pageDirectory, int filenum) {
+
+  char filestr[5];
+
+  sprintf(filestr, "%d", filenum); //convert filenum to string
+
+  char *pathToCheck = NULL;
+  if (pageDirectory[-1] != '/') { //if final character of directory isn't a slash
+    pathToCheck = malloc(strlen(pageDirectory)+strlen(filestr)+2); //allocate space for string
+    strcpy(pathToCheck, pageDirectory); //make it page directory
+    strcat(pathToCheck, "/"); //add slash
+    strcat(pathToCheck, filestr); //add file string
+  } else {
+    pathToCheck = malloc(strlen(pageDirectory)+strlen(filestr)+1); //allocate space for string
+    strcpy(pathToCheck, pageDirectory); //make it page directory
+    strcat(pathToCheck, filestr); //add file string
+  }
+  return pathToCheck;
 
 }
 

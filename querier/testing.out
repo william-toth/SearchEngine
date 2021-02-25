@@ -1,0 +1,77 @@
+make: 'querier' is up to date.
+
+wrong number of arguments, invalid page directory, and invalid index file:
+
+./querier ../crawler/pageDirectory ../indexer/oldIndexFile thirdargument
+Error: Please give two arguments
+Makefile:20: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+./querier invalid_directory ../indexer/oldIndexFile
+Error: Not a valid directory
+Makefile:20: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+./querier ../crawler/pageDirectory invalid_file
+Error: Not a valid index file
+Makefile:20: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+testquery 1: invalid queries (including digits and wrong and/or syntax): Should say that syntax is invalid
+Refer to testquery1 for queries
+
+Query? Error: Invalid Syntax
+-------------------------------------
+Query? Error: Invalid Syntax
+-------------------------------------
+Query? Error: Invalid Syntax
+-------------------------------------
+Query? Error: Invalid Syntax
+-------------------------------------
+Query? Error: Invalid Syntax
+-------------------------------------
+Query? Error: Invalid Syntax
+-------------------------------------
+Query? Error: Invalid Syntax
+-------------------------------------
+Query?
+
+testquery 2: valid queries (to check score):
+Refer to testquery2 for queries
+
+Query? Matches 1 documents (ranked):
+score  20 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape/
+--------------------------------------
+Query? Matches 1 documents (ranked):
+score   2 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape/
+--------------------------------------
+Query? Matches 2 documents (ranked):
+score   4 doc  1: http://cs50tse.cs.dartmouth.edu/tse/wikipedia/
+score   1 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape//
+--------------------------------------
+Query? Matches 1 documents (ranked):
+score   1 doc  3: http://cs50tse.cs.dartmouth.edu/tse/letters/:
+--------------------------------------
+Query? Matches 2 documents (ranked):
+score   2 doc  0: http://cs50tse.cs.dartmouth.edu/tse/
+score   1 doc  3: http://cs50tse.cs.dartmouth.edu/tse/letters/:
+--------------------------------------
+Query? Matches 2 documents (ranked):
+score   1 doc  1: http://cs50tse.cs.dartmouth.edu/tse/wikipedia/
+score   1 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape//
+--------------------------------------
+Query? Matches 0 documents (ranked):
+--------------------------------------
+Query? Matches 2 documents (ranked):
+score   1 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape/
+score   1 doc  1: http://cs50tse.cs.dartmouth.edu/tse/wikipedia/
+--------------------------------------
+Query? Matches 3 documents (ranked):
+score  12 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape/
+score  10 doc  3: http://cs50tse.cs.dartmouth.edu/tse/letters//
+score   6 doc  1: http://cs50tse.cs.dartmouth.edu/tse/wikipedia/
+--------------------------------------
+Query? Matches 1 documents (ranked):
+score   1 doc  2: http://cs50tse.cs.dartmouth.edu/tse/toscrape/
+--------------------------------------
+Query?

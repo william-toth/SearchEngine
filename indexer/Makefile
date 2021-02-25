@@ -56,8 +56,7 @@ test: $(PROG) $(PROG1)
 	-./$(PROG1) oldIndexFile newIndexFile
 
 valgrind: $(PROG)
-	#valgrind ./$(PROG) ../crawler/pageDirectory oldIndexFile
-	#valgrind ./$(PROG1) oldIndexFile newIndexFile
+	valgrind ./$(PROG) ../crawler/pageDirectory oldIndexFile
 
 clean:
 	rm -rf *.dSYM  # MacOS debugger info
