@@ -1,5 +1,5 @@
 # Will Toth
-## Tiny Search Engine
+## Tiny Search Engine, project for Dartmouth CS50: 21W
 
 Coded primarily in C, this engine is comprised of:
 
