@@ -1,6 +1,9 @@
 # Will Toth
-## CS50 Winter 2021, Tiny Search Engine
+## Tiny Search Engine
 
-GitHub username: william-Toth
+Coded primarily in C, this engine is comprised of:
+-a crawler, which, given a URL and depth, crawls the web, saving html files
+-an indexer, which reads saved files, creating an inverted index data structure of words and their number of occurences in each html file
+-a querier, which, given a query, will use the inverted index data structure to search the web and return URLS matching the query
 
 Instructions for each are module in their various README.md.
