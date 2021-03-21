@@ -1,0 +1,129 @@
+
+Testing should print out hashtable of URLs iff successful, recipe fortarget failed when not
+To view downloaded pages, look at pageDirectory
+
+letters page with depth 0
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ 0
+   0: {}
+   1: {}
+   2: {http://cs50tse.cs.dartmouth.edu/tse/letters/index.html,}
+   3: {}
+   4: {}
+   5: {}
+   6: {}
+   7: {}
+   8: {}
+   9: {}
+
+letters page with depth 1
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ 1
+   0: {}
+   1: {http://cs50tse.cs.dartmouth.edu/tse/letters/A.html,}
+   2: {http://cs50tse.cs.dartmouth.edu/tse/letters/index.html,}
+   3: {}
+   4: {}
+   5: {}
+   6: {}
+   7: {}
+   8: {}
+   9: {}
+
+letters page with depth 2
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ 2
+   0: {}
+   1: {http://cs50tse.cs.dartmouth.edu/tse/letters/A.html,}
+   2: {http://cs50tse.cs.dartmouth.edu/tse/letters/index.html,}
+   3: {}
+   4: {}
+   5: {}
+   6: {http://cs50tse.cs.dartmouth.edu/tse/letters/B.html,}
+   7: {}
+   8: {}
+   9: {}
+
+letters page with depth 3
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ 3
+   0: {}
+   1: {http://cs50tse.cs.dartmouth.edu/tse/letters/D.html,http://cs50tse.cs.dartmouth.edu/tse/letters/E.html,http://cs50tse.cs.dartmouth.edu/tse/letters/A.html,}
+   2: {http://cs50tse.cs.dartmouth.edu/tse/letters/index.html,}
+   3: {}
+   4: {}
+   5: {}
+   6: {http://cs50tse.cs.dartmouth.edu/tse/letters/B.html,}
+   7: {http://cs50tse.cs.dartmouth.edu/tse/letters/C.html,}
+   8: {}
+   9: {}
+
+letters page with depth 4
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ 4
+   0: {}
+   1: {http://cs50tse.cs.dartmouth.edu/tse/letters/D.html,http://cs50tse.cs.dartmouth.edu/tse/letters/E.html,http://cs50tse.cs.dartmouth.edu/tse/letters/A.html,}
+   2: {http://cs50tse.cs.dartmouth.edu/tse/letters/index.html,}
+   3: {}
+   4: {}
+   5: {http://cs50tse.cs.dartmouth.edu/tse/letters/G.html,}
+   6: {http://cs50tse.cs.dartmouth.edu/tse/letters/F.html,http://cs50tse.cs.dartmouth.edu/tse/letters/B.html,}
+   7: {http://cs50tse.cs.dartmouth.edu/tse/letters/C.html,}
+   8: {}
+   9: {}
+
+Invalid URL
+
+./crawler http://cs50tse.cs.dartmouth.ed ./pageDirectory/ 0
+Not internal URL
+Makefile:18: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+not a directory
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ctory/ 0
+Not a valid directory
+Makefile:18: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+non integer depth
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ depth
+Max Depth not an integer
+Makefile:18: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+depth out of range
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/letters/index.html ./pageDirectory/ -5
+Max Depth not an integer
+Makefile:18: recipe for target 'test' failed
+make: [test] Error 1 (ignored)
+
+Different website
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/ ./pageDirectory/ 1
+   0: {http://cs50tse.cs.dartmouth.edu/tse/letters/,http://cs50tse.cs.dartmouth.edu/tse/wikipedia/,}
+   1: {}
+   2: {}
+   3: {}
+   4: {http://cs50tse.cs.dartmouth.edu/tse/toscrape/,}
+   5: {}
+   6: {}
+   7: {http://cs50tse.cs.dartmouth.edu/tse/,}
+   8: {}
+   9: {}
+
+Same thing but missing slash at the end of directory. Should still work
+
+./crawler http://cs50tse.cs.dartmouth.edu/tse/ ./pageDirectory 1
+   0: {http://cs50tse.cs.dartmouth.edu/tse/letters/,http://cs50tse.cs.dartmouth.edu/tse/wikipedia/,}
+   1: {}
+   2: {}
+   3: {}
+   4: {http://cs50tse.cs.dartmouth.edu/tse/toscrape/,}
+   5: {}
+   6: {}
+   7: {http://cs50tse.cs.dartmouth.edu/tse/,}
+   8: {}
+   9: {}

@@ -1,10 +1,6 @@
-# Your name
-## CS50 Spring 2019, Tiny Search Engine
+# Will Toth
+## CS50 Winter 2021, Tiny Search Engine
 
-GitHub username:
+GitHub username: william-Toth
 
-To build, run `make`.
-
-To clean up, run `make clean`.
-
-*Please replace this text with any comments you have about the overall assignment.  Please supply a README for each subdirectory..*
+Instructions for each are module in their various README.md.

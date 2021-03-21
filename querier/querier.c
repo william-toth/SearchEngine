@@ -345,7 +345,7 @@ static void func1(void *arg, const int key, const int count) {
    }
  }
 
-//helper function to rank scores by adding the highest one iteratively
+//helper function to rank scores by adding the highest one
  static void add_highest(void *arg, const int key, const int count) {
    if (count != 0) {
      if (count > highest_score) {
