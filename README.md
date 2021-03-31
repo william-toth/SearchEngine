@@ -9,4 +9,6 @@ Coded primarily in C, this engine is comprised of:
 
 -a querier, which, given a query, will use the inverted index data structure to search the web and subsequently return URLS matching the query
 
+Note: To allow for URL's not in the CS50 tse domain, please change the internal url prefix in `libcs50/webpage.h` (currently, crawler only allows for websites with the cs50 tse prefix).
+
 Instructions for each are module in their various README.md's
